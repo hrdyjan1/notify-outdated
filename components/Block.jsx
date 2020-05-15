@@ -207,3 +207,4 @@ const Block = (props) => {
 };
 
 export default Block;
+export { styles };

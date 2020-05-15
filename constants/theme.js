@@ -1,3 +1,5 @@
+import { Dimensions } from 'react-native';
+
 const yellow = '#e2d810';
 const pink = '#d9138a';
 const green = '#0f0';
@@ -26,6 +28,7 @@ const sizes = {
   font: 14,
   radius: 6,
   padding: 25,
+  border: 15,
 
   // font sizes
   h1: 26,
@@ -35,6 +38,10 @@ const sizes = {
   header: 16,
   body: 14,
   caption: 12,
+  device: {
+    width: Math.round(Dimensions.get('window').width),
+    height: Math.round(Dimensions.get('window').height),
+  },
 };
 
 const fonts = {

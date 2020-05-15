@@ -12,7 +12,7 @@ import Easy from '../screens/notifications/Easy';
 import Complex from '../screens/notifications/Complex';
 import Template from '../screens/notifications/Template';
 
-import { easy } from './options';
+import { options } from './options';
 
 const Stack = createStackNavigator();
 
@@ -24,8 +24,8 @@ function Navigation() {
         {isLoggedIn ? (
           <>
             <Stack.Screen name="HomeStack" component={Main} />
-            <Stack.Screen name="Easy" component={Easy} options={easy} />
-            <Stack.Screen name="Complex" component={Complex} />
+            <Stack.Screen name="Easy" component={Easy} options={options.easy} />
+            <Stack.Screen name="Complex" component={Complex} options={options.complex} />
             <Stack.Screen name="Template" component={Template} />
           </>
         ) : (
