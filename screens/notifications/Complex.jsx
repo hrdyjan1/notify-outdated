@@ -1,14 +1,12 @@
 import React from 'react';
-import {
-  Image, SafeAreaView, StyleSheet, View,
-} from 'react-native';
+import { Image, SafeAreaView, StyleSheet } from 'react-native';
 
 import {
-  Text, Block, ComplexButton, TextButton,
+  Text, Block, ComplexButton, TextButton, Headings, List,
 } from '../../components';
 
 import image from '../../assets/complex.png';
-import { theme } from '../../constants';
+import { theme, mocks } from '../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,39 +26,29 @@ const styles = StyleSheet.create({
   },
 });
 
-const mainButton = {
-  iconSetting: {
-    name: 'trophy',
-    color: { background: '#59bfe4', foreground: 'white' },
-  },
-  textSetting: {
-    title: 'Create',
-    subtitle: 'Lets get started!',
-    color: { background: theme.colors.primary, foreground: 'white' },
-  },
-};
-
 const Complex = ({ navigation }) => (
   <SafeAreaView style={styles.container}>
     <Block center top style={styles.top}>
       <Image source={image} resizeMode="center" style={styles.image} />
     </Block>
-    <Block top center style={styles.mainSection}>
-      <ComplexButton text={mainButton.textSetting} icon={mainButton.iconSetting} />
-      <View
-        style={{
-          alignSelf: 'stretch',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingVertical: 15,
-          paddingHorizontal: 10,
-        }}
-      >
+    <Block middle center style={styles.mainSection}>
+      <ComplexButton
+        text={mocks.complexScreen.mainButton.textSetting}
+        icon={mocks.complexScreen.mainButton.iconSetting}
+      />
+      <Headings>
         <Text h3 spacing={0.4} margin bold>
           Use template
         </Text>
         <TextButton text="See more" onPress={() => navigation.navigate('Easy')} />
-      </View>
+      </Headings>
+      <ComplexButton
+        text={mocks.complexScreen.templateButton.textSetting}
+        icon={mocks.complexScreen.templateButton.iconSetting}
+      />
+      {/* <Block style={{ width: theme.sizes.device.width }}>
+        <List />
+      </Block> */}
     </Block>
   </SafeAreaView>
 );

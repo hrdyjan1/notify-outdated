@@ -1,6 +1,9 @@
-import { pipe, path, split } from 'ramda';
+import {
+  pipe, path, split, mapObjIndexed,
+} from 'ramda';
 
 const pathString = pipe(split(/[[\].]/), path);
 
-// eslint-disable-next-line import/prefer-default-export
-export { pathString };
+const addKeyInObj = mapObjIndexed((_, key, obj) => ({ key, ...obj[key] }));
+
+export { pathString, addKeyInObj };

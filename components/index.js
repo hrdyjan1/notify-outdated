@@ -6,3 +6,5 @@ export { default as Card } from './Card';
 export { default as Badge } from './Badge';
 export { default as ComplexButton } from './ComplexButton';
 export { default as TextButton } from './TextButton';
+export { default as Headings } from './Headings';
+export { default as List } from './List';

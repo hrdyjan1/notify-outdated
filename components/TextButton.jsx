@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { theme } from '../constants';
-import { Text } from '.';
+import Text from './Text';
 
 const TextButton = ({ text, onPress }) => (
   <TouchableOpacity onPress={onPress}>

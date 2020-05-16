@@ -101,7 +101,7 @@ const ActionButtonAdd = ({ icon, navigation }) => {
                 height: 48,
               }}
             >
-              <Icon name="paper-plane" size={18} color={colors.white} />
+              <Icon name="clock" size={18} color={colors.white} />
             </View>
           </TouchableOpacity>
         </View>
@@ -127,7 +127,7 @@ const ActionButtonAdd = ({ icon, navigation }) => {
                 height: 48,
               }}
             >
-              <Icon name="star" size={20} color={colors.white} />
+              <Icon name="paper-plane" size={20} color={colors.white} />
             </View>
           </TouchableOpacity>
         </View>
