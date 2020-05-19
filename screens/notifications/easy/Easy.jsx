@@ -55,7 +55,7 @@ function notificationReducer(state, action) {
         status: 'CREATED_SUCCESS',
         text: {
           ...state.text,
-          button: 'Created',
+          button: 'Home',
           title: 'Hurray!',
           subtitle: 'You successfully created Quick notification: ',
         },
