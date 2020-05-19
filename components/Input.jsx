@@ -47,6 +47,20 @@ const Input = (props) => {
     );
   };
 
+  const renderError = () => {
+    const { errorText } = props;
+
+    return (
+      <Block flex={false}>
+        {errorText ? (
+          <Text primary error>
+            {errorText}
+          </Text>
+        ) : null}
+      </Block>
+    );
+  };
+
   const renderToggle = () => {
     const { secure, rightLabel } = props;
 
@@ -78,11 +92,11 @@ const Input = (props) => {
   };
 
   const {
-    email, phone, number, secure, error, style, ...others
+    email, phone, number, secure, errorText, style, ...others
   } = props;
   const isSecure = isToggleSecure ? false : secure;
 
-  const inputStyles = [styles.input, error && { borderColor: theme.colors.accent }, style];
+  const inputStyles = [styles.input, errorText && { borderColor: theme.colors.red }, style];
 
   const phoneType = phone ? 'phone-pad' : 'default';
   const numberType = number ? 'numeric' : phoneType;
@@ -102,6 +116,7 @@ const Input = (props) => {
       />
       {renderToggle()}
       {renderRight()}
+      {renderError()}
     </Block>
   );
 };

@@ -8,3 +8,5 @@ export { default as ComplexButton } from './ComplexButton';
 export { default as TextButton } from './TextButton';
 export { default as Headings } from './Headings';
 export { default as List } from './List';
+export { default as Space } from './Space';
+export { default as SplashButton } from './SplashButton';

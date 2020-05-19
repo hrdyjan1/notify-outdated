@@ -8,7 +8,7 @@ import SignUp from '../screens/SignUp';
 import GetStarted from '../screens/GetStarted';
 import { UserContext } from '../contexts/User';
 import Main from './Main';
-import Easy from '../screens/notifications/Easy';
+import { Easy } from '../screens/notifications/easy';
 import Complex from '../screens/notifications/Complex';
 import Template from '../screens/notifications/Template';
 
@@ -23,7 +23,7 @@ function Navigation() {
       <Stack.Navigator>
         {isLoggedIn ? (
           <>
-            <Stack.Screen name="HomeStack" component={Main} />
+            <Stack.Screen name="Home" component={Main} />
             <Stack.Screen name="Easy" component={Easy} options={options.easy} />
             <Stack.Screen name="Complex" component={Complex} options={options.complex} />
             <Stack.Screen name="Template" component={Template} />

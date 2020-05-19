@@ -1,11 +1,15 @@
 import React from 'react';
 import {
-  Animated, StyleSheet, View, Dimensions,
+  Animated, View, StyleSheet, Dimensions,
 } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
+import * as Icon from 'react-native-vector-icons';
+
 import { theme } from '../constants';
-import { Text } from '.';
+import Text from './Text';
 import Block from './Block';
+import Badge from './Badge';
+import Space from './Space';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +27,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const AnimatedActionContainer = ({ started }) => {
+const AnimatedActionContainer = ({
+  title, subtitle, started, icon = { name: 'home', backgroundColor: theme.colors.primary },
+}) => {
   const animation = new Animated.Value(0);
   const fadeAnim = new Animated.Value(0);
   const headerHeight = useHeaderHeight();
@@ -63,7 +69,20 @@ const AnimatedActionContainer = ({ started }) => {
           bottom: 0,
         }}
       >
-        <Text h1 white bold center>Created!</Text>
+        <Block center middle>
+          <Badge color={icon.backgroundColor} size={120}>
+            <Icon.FontAwesome name={icon.name} color="#fff" size={50} />
+          </Badge>
+          <View style={{ padding: 20 }}>
+            <Text h1 white bold center>
+              {title}
+            </Text>
+            <Space />
+            <Text small white center>
+              {subtitle}
+            </Text>
+          </View>
+        </Block>
       </Block>
     </>
   );

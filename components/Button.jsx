@@ -29,7 +29,13 @@ const styles = StyleSheet.create({
 });
 
 const Button = ({
-  shadow, style, children, opacity = 0.8, color = theme.colors.white, ...others
+  disabled,
+  shadow,
+  style,
+  children,
+  opacity = 0.8,
+  color = theme.colors.white,
+  ...others
 }) => {
   const buttonStyles = [
     styles.button,
@@ -40,7 +46,12 @@ const Button = ({
   ];
 
   return (
-    <TouchableOpacity style={buttonStyles} activeOpacity={opacity || 0.8} {...others}>
+    <TouchableOpacity
+      disabled={disabled}
+      style={buttonStyles}
+      activeOpacity={opacity || 0.8}
+      {...others}
+    >
       {children}
     </TouchableOpacity>
   );

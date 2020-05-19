@@ -6,4 +6,12 @@ const pathString = pipe(split(/[[\].]/), path);
 
 const addKeyInObj = mapObjIndexed((_, key, obj) => ({ key, ...obj[key] }));
 
-export { pathString, addKeyInObj };
+const getRandomTime = () => Math.random * 1000;
+
+const resolveRandomTime = async () => new Promise((r) => setTimeout(r, 1000));
+
+const checkValidation = (text) => text.length > 3;
+
+export {
+  pathString, addKeyInObj, resolveRandomTime, getRandomTime, checkValidation,
+};

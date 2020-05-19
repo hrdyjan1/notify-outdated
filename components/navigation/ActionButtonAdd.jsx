@@ -101,7 +101,7 @@ const ActionButtonAdd = ({ icon, navigation }) => {
                 height: 48,
               }}
             >
-              <Icon name="clock" size={18} color={colors.white} />
+              <Icon name="hourglass-2" size={18} color={colors.white} />
             </View>
           </TouchableOpacity>
         </View>
