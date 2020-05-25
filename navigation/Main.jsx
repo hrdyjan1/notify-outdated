@@ -27,7 +27,7 @@ const screens = {
 const addKeyToChildren = (obj, key) => ({ key, ...obj });
 const makeArrayObjects = R.compose(R.values, R.mapObjIndexed(addKeyToChildren));
 
-const initialRouteName = screens[1588745276027].routeName;
+const initialRouteName = screens[1588745331854].routeName;
 const activeColor = colors.white;
 
 const Tab = createMaterialBottomTabNavigator();
@@ -35,9 +35,11 @@ const Tab = createMaterialBottomTabNavigator();
 const Main = ({ navigation }) => (
   <>
     <Tab.Navigator
+      screenOptions={{
+        tabBarColor: colors.primary,
+      }}
       initialRouteName={initialRouteName}
       activeColor={activeColor}
-      style={{ backgroundColor: colors.primary }}
       shifting
     >
       {makeArrayObjects(screens).map(({

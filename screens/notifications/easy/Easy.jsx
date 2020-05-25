@@ -61,7 +61,7 @@ function notificationReducer(state, action) {
         },
         icon: {
           name: 'check',
-          backgroundColor: theme.colors.tertiary,
+          backgroundColor: theme.colors.green,
         },
       };
     case 'CREATE_FAILURE':
@@ -153,7 +153,7 @@ const Easy = ({ navigation }) => {
                 started={isNotIdleStatus}
                 onPress={actionButtonOnPress}
                 disabled={actionButtonDisabled}
-                color={isSuccessfullyCreated ? theme.colors.tertiary : theme.colors.primary}
+                color={isSuccessfullyCreated ? theme.colors.green : theme.colors.primary}
                 text={notification.text}
                 icon={notification.icon}
               />

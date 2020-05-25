@@ -2,12 +2,12 @@ import { Dimensions } from 'react-native';
 
 const yellow = '#e2d810';
 const pink = '#d9138a';
-const green = '#0f0';
+const green = '#228b22';
 const blue = '#12a4d9';
 const black = '#322e2f';
 const gray = '#ccc';
 const gray2 = '#ddd';
-const red = '#f00';
+const red = pink;
 const white = '#fff';
 
 const colors = {
@@ -20,6 +20,7 @@ const colors = {
   gray,
   gray2,
   red,
+  green,
 };
 
 const sizes = {
