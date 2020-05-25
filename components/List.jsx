@@ -6,19 +6,22 @@ import Animated, { Extrapolate, add, interpolate } from 'react-native-reanimated
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import { diffClamp, usePanGestureHandler, withDecay } from 'react-native-redash';
 import { theme } from '../constants';
+import ComplexButton from './ComplexButton';
 
-const CARD_HEIGHT = 50;
+const CARD_HEIGHT = 100;
 const MARGIN = 16;
 const HEIGHT = CARD_HEIGHT + MARGIN * 2;
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
     borderWidth: 1,
+    borderColor: '#f00',
   },
   card: {
+    width: '100%',
     marginVertical: MARGIN,
   },
 });
@@ -79,11 +82,12 @@ const Wallet = () => {
               >
                 <View
                   style={{
-                    borderWidth: 1,
                     height: CARD_HEIGHT,
-                    width: theme.sizes.device.width - 10,
+                    // width: theme.sizes.device.width - 10,
                   }}
-                />
+                >
+                  <ComplexButton />
+                </View>
               </Animated.View>
             );
           })
