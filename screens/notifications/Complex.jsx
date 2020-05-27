@@ -33,6 +33,7 @@ const Complex = ({ navigation }) => (
       <ComplexButton
         text={mocks.complexScreen.mainButton.textSetting}
         icon={mocks.complexScreen.mainButton.iconSetting}
+        onPress={() => navigation.navigate('Creating')}
       />
       <Headings>
         <Text h3 spacing={0.4} margin bold>
@@ -41,6 +42,7 @@ const Complex = ({ navigation }) => (
         <TextButton text="See more" onPress={() => navigation.navigate('Template')} />
       </Headings>
       <ComplexButton
+        onPress={() => navigation.navigate('Creating')}
         text={mocks.complexScreen.templateButton.textSetting}
         icon={mocks.complexScreen.templateButton.iconSetting}
       />

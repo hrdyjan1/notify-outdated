@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import * as Icon from 'react-native-vector-icons';
 
 import Block, { styles as blockStyles } from './Block';
@@ -23,7 +23,11 @@ const getSubtitle = pathString('subtitle');
 const getBackgroundColor = pathString('color.background');
 const getForegroundColor = pathString('color.foreground');
 
-const ComplexButton = ({ text, icon }) => {
+function noop(info) {
+  console.log('noop');
+}
+
+const ComplexButton = ({ text, icon, onPress }) => {
   // Icon
   const iconName = getName(icon) || 'home';
   const iconSize = getSize(icon) || theme.sizes.h2;
@@ -36,9 +40,9 @@ const ComplexButton = ({ text, icon }) => {
   const textForegroundColor = getForegroundColor(text) || '#fff';
   const textBackgroundColor = getBackgroundColor(text) || '#00f';
 
-
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress || noop}
       style={[
         blockStyles.row,
         cardStyles.card,
@@ -59,7 +63,7 @@ const ComplexButton = ({ text, icon }) => {
           {textSubtitle}
         </Text>
       </Block>
-    </View>
+    </TouchableOpacity>
   );
 };
 

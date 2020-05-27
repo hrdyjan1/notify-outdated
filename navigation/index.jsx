@@ -11,6 +11,7 @@ import Main from './Main';
 import { Easy } from '../screens/notifications/easy';
 import Complex from '../screens/notifications/Complex';
 import Template from '../screens/notifications/Template';
+import Creating from '../screens/notifications/Creating';
 
 import { options } from './options';
 
@@ -27,6 +28,7 @@ function Navigation() {
             <Stack.Screen name="Easy" component={Easy} options={options.easy} />
             <Stack.Screen name="Complex" component={Complex} options={options.complex} />
             <Stack.Screen name="Template" component={Template} options={options.template} />
+            <Stack.Screen name="Creating" component={Creating} options={options.creating} />
           </>
         ) : (
           <>

@@ -23,6 +23,19 @@ const colors = {
   green,
 };
 
+const themeColors = {
+  red: pink,
+  redLight: '#DA5AA7',
+  blue,
+  blueLight: '#59bfe4',
+  green,
+  greenLight: '#52BE80',
+  orange: '#BA4A00',
+  orangeLight: '#E59866',
+  purple: '#6C3483',
+  purpleLight: '#A569BD',
+};
+
 const sizes = {
   // global sizes
   base: 16,
@@ -68,5 +81,9 @@ const fonts = {
     fontSize: sizes.caption,
   },
 };
-export { sizes, fonts, colors };
-export default { sizes, fonts, colors };
+export {
+  sizes, fonts, colors, themeColors,
+};
+export default {
+  sizes, fonts, colors, themeColors,
+};

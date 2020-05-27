@@ -36,9 +36,22 @@ const template = {
   headerTitleAlign: 'center',
 };
 
+const creating = {
+  title: 'Creating',
+  headerStyle: {
+    backgroundColor: colors.primary,
+  },
+  headerTintColor: '#fff',
+  headerTitleStyle: {
+    fontWeight: 'bold',
+  },
+  headerTitleAlign: 'center',
+};
+
 const options = {
   easy,
   complex,
+  creating,
   template,
 };
 // eslint-disable-next-line import/prefer-default-export

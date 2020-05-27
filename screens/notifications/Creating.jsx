@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Block, List } from '../../components';
+import { Block, Text } from '../../components';
 import { theme } from '../../constants';
 
 const styles = StyleSheet.create({
@@ -11,10 +11,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const Template = ({ navigation }) => (
+const Template = () => (
   <View style={styles.container}>
     <Block middle>
-      <List navigation={navigation} />
+      <Text>Jou</Text>
     </Block>
   </View>
 );

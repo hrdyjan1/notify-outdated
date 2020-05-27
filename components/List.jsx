@@ -5,20 +5,19 @@ import Animated, { Extrapolate, add, interpolate } from 'react-native-reanimated
 
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import { diffClamp, usePanGestureHandler, withDecay } from 'react-native-redash';
-import { theme } from '../constants';
 import ComplexButton from './ComplexButton';
+import mocks from '../constants/mocks';
 
-const CARD_HEIGHT = 100;
-const MARGIN = 16;
+const CARD_HEIGHT = 80;
+const MARGIN = 15;
 const HEIGHT = CARD_HEIGHT + MARGIN * 2;
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const cards = mocks.templates;
 
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#f00',
   },
   card: {
     width: '100%',
@@ -26,10 +25,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const Wallet = () => {
+const Wallet = ({ navigation }) => {
   const [containerHeight, setContainerHeight] = useState(null);
-  const visibleCards = Math.floor(containerHeight / HEIGHT);
-  console.log('visibleCards', visibleCards);
+  const visibleCards = Math.ceil(containerHeight / HEIGHT);
   const {
     gestureHandler, translation, velocity, state,
   } = usePanGestureHandler();
@@ -39,7 +37,7 @@ const Wallet = () => {
       velocity: velocity.y,
       state,
     }),
-    -HEIGHT * cards.length + visibleCards * HEIGHT,
+    -HEIGHT * (cards.length + 0.5) + visibleCards * HEIGHT,
     0,
   );
   return (
@@ -53,14 +51,13 @@ const Wallet = () => {
         }) => setContainerHeight(h)}
       >
         {containerHeight
-          ? cards.map(({ type }, index) => {
+          ? cards.map(({ textSetting, iconSetting }, index) => {
             const positionY = add(y, index * HEIGHT);
             const isDisappearing = -HEIGHT;
             const isTop = 0;
             const isBottom = HEIGHT * (visibleCards - 1);
             const isAppearing = HEIGHT * visibleCards;
 
-            console.log('[isDisappearing, isTop, isBottom, isAppearing]', [isDisappearing, isTop, isBottom, isAppearing]);
             const translateY = interpolate(y, {
               inputRange: [-HEIGHT * index, 0],
               outputRange: [-HEIGHT * index, 0],
@@ -80,13 +77,8 @@ const Wallet = () => {
               <Animated.View
                 style={[styles.card, { opacity, transform: [{ translateY }, { scale }] }]}
               >
-                <View
-                  style={{
-                    height: CARD_HEIGHT,
-                    // width: theme.sizes.device.width - 10,
-                  }}
-                >
-                  <ComplexButton />
+                <View style={{ height: CARD_HEIGHT }}>
+                  <ComplexButton text={textSetting} icon={iconSetting} onPress={() => navigation.navigate('Creating')} />
                 </View>
               </Animated.View>
             );
