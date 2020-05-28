@@ -9,7 +9,7 @@ import GetStarted from '../screens/GetStarted';
 import { UserContext } from '../contexts/User';
 import Main from './Main';
 import { Easy } from '../screens/notifications/easy';
-import Complex from '../screens/notifications/Complex';
+import { Complex } from '../screens/notifications/complex';
 import Template from '../screens/notifications/Template';
 import Creating from '../screens/notifications/Creating';
 
@@ -32,7 +32,7 @@ function Navigation() {
           </>
         ) : (
           <>
-            <Stack.Screen name="Welcome" component={Welcome} />
+            <Stack.Screen name="Welcome" component={Welcome} options={options.welcome} />
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="GetStarted" component={GetStarted} />

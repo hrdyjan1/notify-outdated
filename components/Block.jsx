@@ -5,6 +5,9 @@ import { StyleSheet, View, Animated } from 'react-native';
 import { colors, sizes } from '../constants/theme';
 
 const styles = StyleSheet.create({
+  bordered: {
+    borderWidth: 1,
+  },
   block: {
     flex: 1,
   },
@@ -164,6 +167,9 @@ const Block = (props) => {
     animated,
     wrap,
     style,
+    bordered,
+    borderColor,
+    radius,
     children,
     ...others
   } = props;
@@ -188,6 +194,9 @@ const Block = (props) => {
     wrap && { flexWrap: 'wrap' },
     color && styles[color], // predefined styles colors for backgroundColor
     color && !styles[color] && { backgroundColor: color }, // custom backgroundColor
+    bordered && styles.bordered,
+    borderColor && { borderColor, ...styles.bordered },
+    radius && { borderRadius: radius },
     style, // rewrite predefined styles
   ];
 

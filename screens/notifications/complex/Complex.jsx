@@ -1,28 +1,15 @@
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet } from 'react-native';
+import { Image, SafeAreaView } from 'react-native';
 
 import {
-  Text, Block, ComplexButton, TextButton, Headings, List,
-} from '../../components';
+  Text, Block, ComplexButton, TextButton, Headings,
+} from '../../../components';
 
-import image from '../../assets/complex.png';
-import { theme, mocks } from '../../constants';
+import image from '../../../assets/complex.png';
+import { mocks } from '../../../constants';
+import styles from './styles';
+import { textButtonIcon } from './helpers';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 0,
-    paddingHorizontal: theme.sizes.base * 2,
-  },
-  top: {
-    padding: 50,
-  },
-  image: {
-    width: theme.sizes.device.width - 10,
-    height: '100%',
-    resizeMode: 'contain',
-  },
-});
 
 const Complex = ({ navigation }) => (
   <SafeAreaView style={styles.container}>
@@ -39,7 +26,11 @@ const Complex = ({ navigation }) => (
         <Text h3 spacing={0.4} margin bold>
           Use template
         </Text>
-        <TextButton text="See more" onPress={() => navigation.navigate('Template')} />
+        <TextButton
+          text="See more"
+          onPress={() => navigation.navigate('Template')}
+          icon={textButtonIcon}
+        />
       </Headings>
       <ComplexButton
         onPress={() => navigation.navigate('Creating')}

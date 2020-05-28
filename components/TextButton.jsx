@@ -5,16 +5,16 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { theme } from '../constants';
 import Text from './Text';
 
-const TextButton = ({ text, onPress }) => (
+const TextButton = ({
+  text, onPress, color, style, icon,
+}) => (
   <TouchableOpacity onPress={onPress}>
-    <Text h3 spacing={0.4} margin color={theme.colors.tertiary}>
+    <Text h3 spacing={0.4} margin color={color || theme.colors.tertiary} style={style}>
       {text}
       {' '}
-      <Icon
-        name="ios-arrow-forward"
-        color={theme.colors.tertiary}
-        size={theme.sizes.h3 - 3}
-      />
+      {icon ? (
+        <Icon name={icon.name} color={color || theme.colors.tertiary} size={theme.sizes.h3 - 3} />
+      ) : null}
     </Text>
   </TouchableOpacity>
 );
