@@ -1,54 +1,41 @@
 import React from 'react';
-import {
-  SafeAreaView, StyleSheet, Image, Dimensions, FlatList,
-} from 'react-native';
+import { SafeAreaView, FlatList, View } from 'react-native';
 
-import { ScrollView } from 'react-native-gesture-handler';
-import image from '../assets/welcome.png';
 import { theme } from '../constants';
-import { Block, Text, TextButton } from '../components';
-import { UserContext } from '../contexts/User';
+import { Block, TextButton } from '../components';
+import {
+  styles,
+  SCREEN_DATA,
+  getItemLayout,
+  initialState,
+  renderItems,
+  keyExtractor,
+  reducer,
+} from './welcome/helpers';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 0,
-  },
-  screen: {
-    width: Dimensions.get('screen').width,
-    paddingHorizontal: theme.sizes.base * 2,
-  },
-});
-
-const data = [
-  { key: 1, value: 1 },
-  { key: 2, value: 2 },
-  { key: 3, value: 3 },
-];
-
-const Welcome = ({ navigation }) => {
-  const { login } = React.useContext(UserContext);
+const Welcome = () => {
+  //   const userContext = React.useContext(UserContext);
   const flatListRef = React.useRef(null);
-  const renderItem = ({ item }) => {
-    console.log('item', item);
-    return (
-      <Block style={{ width: Dimensions.get('window').width }} bordered>
-        <Text>value</Text>
-      </Block>
-    );
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  const scrollTo = (index) => flatListRef.current.scrollToIndex({ index });
+  const handleScrollTo = (index) => {
+    scrollTo(index);
+    dispatch({ index });
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        initialNumToRender={1}
         horizontal
         ref={flatListRef}
-        renderItem={renderItem}
-        scrollEnabled
-        keyExtractor={(item) => item.key}
-        data={data}
-        pagingEnabled
+        renderItem={renderItems}
+        keyExtractor={keyExtractor}
+        data={SCREEN_DATA}
+        scrollEnabled={false} // Can not use finger to scroll left/right (top/bottom)
+        pagingEnabled // Can not stack on half transition
+        getItemLayout={getItemLayout}
+        initialScrollIndex={state.SCROLL_INDEX}
         showsHorizontalScrollIndicator={false}
       />
       {/* <ScrollView
@@ -90,35 +77,52 @@ const Welcome = ({ navigation }) => {
         center
         style={{ justifyContent: 'space-between', paddingHorizontal: theme.sizes.base * 2 }}
       >
-        <Text bold h3>
-          Why?
-        </Text>
-        <Block row center middle>
+        <View style={{ flex: 1 }}>
+          {state.LEFT ? (
+            <TextButton
+              style={{ textAlign: 'left' }}
+              text={state.LEFT.text}
+              iconLeft={state.LEFT.icon}
+              onPress={() => handleScrollTo(state.LEFT.index)}
+            />
+          ) : null}
+        </View>
+        <Block row center middle flex={2}>
           <Block
             flex={false}
             style={{ width: 8, height: 8 }}
             margin={[0, 4]}
             radius={4}
-            color={theme.colors.primary}
+            color={state.DOTS[0].color}
+            borderColor={state.DOTS[0].borderColor}
           />
           <Block
             flex={false}
             style={{ width: 8, height: 8 }}
             radius={4}
             margin={[0, 4]}
-            borderColor={theme.colors.primary}
+            color={state.DOTS[1].color}
+            borderColor={state.DOTS[1].borderColor}
           />
           <Block
             flex={false}
             style={{ width: 8, height: 8 }}
             radius={4}
             margin={[0, 4]}
-            borderColor={theme.colors.primary}
+            color={state.DOTS[2].color}
+            borderColor={state.DOTS[2].borderColor}
           />
         </Block>
-        <Text bold h3>
-          How?
-        </Text>
+        <View style={{ flex: 1 }}>
+          {state.RIGHT ? (
+            <TextButton
+              style={{ textAlign: 'right' }}
+              text={state.RIGHT.text}
+              iconRight={state.RIGHT.icon}
+              onPress={() => handleScrollTo(state.RIGHT.index)}
+            />
+          ) : null}
+        </View>
       </Block>
     </SafeAreaView>
   );
