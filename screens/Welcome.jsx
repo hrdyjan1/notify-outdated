@@ -8,10 +8,10 @@ import {
   SCREEN_DATA,
   getItemLayout,
   initialState,
-  renderItems,
   keyExtractor,
   reducer,
 } from './welcome/helpers';
+import RenderedItems from './welcome/RenderedItems';
 
 const Welcome = () => {
   //   const userContext = React.useContext(UserContext);
@@ -29,7 +29,7 @@ const Welcome = () => {
       <FlatList
         horizontal
         ref={flatListRef}
-        renderItem={renderItems}
+        renderItem={RenderedItems}
         keyExtractor={keyExtractor}
         data={SCREEN_DATA}
         scrollEnabled={false} // Can not use finger to scroll left/right (top/bottom)

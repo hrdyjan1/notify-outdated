@@ -1,11 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
-import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { theme } from '../../constants';
-import { Why } from './why';
-import { How } from './how';
-import { Welcome } from './welcome';
 
 export const ITEM_WIDTH = theme.sizes.device.width;
 const PRIMARY_COLOR = theme.colors.primary;
@@ -105,19 +101,6 @@ export const reducer = (_, action) => {
     default:
       throw new Error(action);
   }
-};
-
-export const renderItems = ({ item }) => {
-  if (item.index === 0) {
-    return <Why item={item} />;
-  }
-  if (item.index === 1) {
-    return <Welcome item={item} />;
-  }
-  if (item.index === 2) {
-    return <How item={item} />;
-  }
-  return null;
 };
 
 export const SCREEN_DATA = [
