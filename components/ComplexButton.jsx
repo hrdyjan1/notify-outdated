@@ -24,7 +24,7 @@ const getBackgroundColor = pathString('color.background');
 const getForegroundColor = pathString('color.foreground');
 
 function noop(info) {
-  console.log('noop');
+  console.log(info ? ({ info }) : 'noop');
 }
 
 const ComplexButton = ({ text, icon, onPress }) => {

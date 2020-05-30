@@ -45,13 +45,13 @@ const sizes = {
   border: 15,
 
   // font sizes
-  h1: 26,
-  h2: 20,
-  h3: 18,
-  title: 18,
-  header: 16,
-  body: 14,
-  caption: 12,
+  h1: 24,
+  h2: 18,
+  h3: 16,
+  title: 16,
+  header: 14,
+  body: 12,
+  caption: 10,
   extra: {
     big: 30,
     small: 10,

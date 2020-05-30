@@ -5,6 +5,7 @@ import ActionButtonAdd from '../components/navigation/ActionButtonAdd';
 import {
   BottomTabs, initialRouteName, activeColor, screens, makeArrayObjects,
 } from './helpers';
+import { Text } from '../components';
 
 const Main = ({ navigation }) => (
   <>

@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
 import R from 'ramda';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import { colors } from '../constants/theme';
+import { Text } from '../components';
 
 export const screens = {
   1588745331854: {
@@ -11,6 +14,11 @@ export const screens = {
     component: Home,
     options: {
       tabBarIcon: 'bell',
+      tabBarLabel: (
+        <Text style={{ fontFamily: 'CarterOne-Regular', fontSize: 12, textAlign: 'center' }} white>
+          Notifications
+        </Text>
+      ),
     },
   },
   1588745276027: {
@@ -18,6 +26,11 @@ export const screens = {
     component: Profile,
     options: {
       tabBarIcon: 'account',
+      tabBarLabel: (
+        <Text style={{ fontFamily: 'CarterOne-Regular', fontSize: 12, textAlign: 'center' }} white>
+          Profile
+        </Text>
+      ),
     },
   },
 };
