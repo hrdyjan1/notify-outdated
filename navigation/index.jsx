@@ -24,7 +24,7 @@ function Navigation() {
       <Stack.Navigator>
         {isLoggedIn ? (
           <>
-            <Stack.Screen name="Home" component={Main} />
+            <Stack.Screen name="Home" component={Main} options={options.home} />
             <Stack.Screen name="Easy" component={Easy} options={options.easy} />
             <Stack.Screen name="Complex" component={Complex} options={options.complex} />
             <Stack.Screen name="Template" component={Template} options={options.template} />

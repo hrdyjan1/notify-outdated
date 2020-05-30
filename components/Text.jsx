@@ -8,6 +8,7 @@ import { theme } from '../constants';
 const styles = StyleSheet.create({
   // default style
   text: {
+    fontFamily: 'CarterOne-Regular',
     fontSize: theme.sizes.font,
     color: theme.colors.black,
   },

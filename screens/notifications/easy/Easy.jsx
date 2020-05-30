@@ -60,7 +60,7 @@ const Easy = ({ navigation }) => {
           <Block padding={[0, theme.sizes.base * 2]}>
             <Block flex={2} center bottom style={styles.top}>
               <Image source={image} style={styles.image} />
-              <Text center h2 primary bold>
+              <Text center h2 primary>
                 Quick, simple, soon.
               </Text>
               <Text center caption primary>
@@ -73,7 +73,7 @@ const Easy = ({ navigation }) => {
                 label="Notification"
                 errorText={notification.text.error}
                 style={[styles.input]}
-                defaultValue={notification.text.notification}
+                defaultValue={notification.text.name}
                 onChangeText={handleNotificationNameChange}
               />
               <SplashButton

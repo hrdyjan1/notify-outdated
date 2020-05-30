@@ -17,10 +17,11 @@ const SplashButton = ({
       started={started}
       title={text.title}
       subtitle={text.subtitle}
+      name={text.name}
       icon={icon}
     />
     <Button onPress={onPress} style={style} disabled={disabled} color={color}>
-      <Text bold white center>
+      <Text white center>
         {text.button}
       </Text>
     </Button>

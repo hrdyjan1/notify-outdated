@@ -23,7 +23,7 @@ const Complex = ({ navigation }) => (
         onPress={() => navigation.navigate('Creating')}
       />
       <Headings>
-        <Text h3 spacing={0.4} margin bold>
+        <Text h3 spacing={0.4} margin>
           Use template
         </Text>
         <TextButton

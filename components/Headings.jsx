@@ -8,7 +8,7 @@ const Headings = ({ children }) => (
       flexDirection: 'row',
       justifyContent: 'space-between',
       paddingVertical: 15,
-      paddingHorizontal: 10,
+      paddingHorizontal: 5,
     }}
   >
     {children}

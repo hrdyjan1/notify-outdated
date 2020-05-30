@@ -52,6 +52,10 @@ const sizes = {
   header: 16,
   body: 14,
   caption: 12,
+  extra: {
+    big: 30,
+    small: 10,
+  },
   device: {
     width: Math.round(Dimensions.get('window').width),
     height: Math.round(Dimensions.get('window').height),

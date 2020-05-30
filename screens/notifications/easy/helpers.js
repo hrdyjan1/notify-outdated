@@ -2,7 +2,7 @@ import { checkValidation } from '../../../helpers/func';
 import { theme } from '../../../constants';
 
 const notificationInitialState = {
-  text: { notification: '', error: '', button: 'Create' },
+  text: { name: '', error: '', button: 'Create' },
   status: 'IDLE',
   valid: false,
 };
@@ -13,7 +13,7 @@ function notificationReducer(state, action) {
       const { text } = action.payload;
       return {
         ...state,
-        text: { button: 'Create', error: '', notification: text },
+        text: { button: 'Create', error: '', name: text },
         valid: checkValidation(text),
       };
     }

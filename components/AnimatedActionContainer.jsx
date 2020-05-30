@@ -28,7 +28,11 @@ const styles = StyleSheet.create({
 });
 
 const AnimatedActionContainer = ({
-  title, subtitle, started, icon = { name: 'home', backgroundColor: theme.colors.primary },
+  title,
+  subtitle,
+  name,
+  started,
+  icon = { name: 'home', backgroundColor: theme.colors.primary },
 }) => {
   const animation = new Animated.Value(0);
   const fadeAnim = new Animated.Value(0);
@@ -74,12 +78,16 @@ const AnimatedActionContainer = ({
             <Icon.FontAwesome name={icon.name} color="#fff" size={50} />
           </Badge>
           <View style={{ padding: 20 }}>
-            <Text h1 white bold center>
+            <Text h1 white center>
               {title}
             </Text>
             <Space />
             <Text small white center>
               {subtitle}
+            </Text>
+            <Space />
+            <Text h3 white center>
+              {name}
             </Text>
           </View>
         </Block>

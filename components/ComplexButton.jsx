@@ -56,10 +56,10 @@ const ComplexButton = ({ text, icon, onPress }) => {
         </Badge>
       </Block>
       <Block middle>
-        <Text bold h2 spacing={0.4} color={textForegroundColor}>
+        <Text h2 spacing={0.4} color={textForegroundColor}>
           {textTitle}
         </Text>
-        <Text size={theme.sizes.medium} medium color={textForegroundColor}>
+        <Text size={theme.sizes.extra.small} color={textForegroundColor}>
           {textSubtitle}
         </Text>
       </Block>

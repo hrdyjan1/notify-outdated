@@ -1,4 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-filename-extension */
+import React from 'react';
+
 import { colors } from '../helpers/colors';
+import Heading from './Heading';
 
 const defaultScreenHeader = {
   title: 'Default Header',
@@ -7,7 +12,7 @@ const defaultScreenHeader = {
   },
   headerTintColor: '#fff',
   headerTitleStyle: {
-    fontWeight: 'bold',
+    fontFamily: 'CarterOne-Regular',
   },
   headerTitleAlign: 'center',
 };
@@ -37,8 +42,19 @@ const welcome = {
   title: 'Welcome',
 };
 
+const home = {
+  ...defaultScreenHeader,
+  title: 'Notify',
+  headerTitle: (props) => <Heading {...props} />,
+//   headerTitleStyle: {
+//     ...defaultScreenHeader.headerTitleStyle,
+//     fontSize: theme.sizes.h1,
+//   },
+};
+
 const options = {
   easy,
+  home,
   complex,
   creating,
   template,
