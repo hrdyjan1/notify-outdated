@@ -27,7 +27,9 @@ function noop(info) {
   console.log(info ? ({ info }) : 'noop');
 }
 
-const ComplexButton = ({ text, icon, onPress }) => {
+const ComplexButton = ({
+  text, icon, onPress, style,
+}) => {
   // Icon
   const iconName = getName(icon) || 'home';
   const iconSize = getSize(icon) || theme.sizes.h2;
@@ -48,6 +50,7 @@ const ComplexButton = ({ text, icon, onPress }) => {
         cardStyles.card,
         styles.createNew,
         { backgroundColor: textBackgroundColor },
+        style,
       ]}
     >
       <Block middle padding={[0, 10]} flex={0.25}>

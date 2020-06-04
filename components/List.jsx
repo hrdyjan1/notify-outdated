@@ -6,13 +6,10 @@ import Animated, { Extrapolate, add, interpolate } from 'react-native-reanimated
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import { diffClamp, usePanGestureHandler, withDecay } from 'react-native-redash';
 import ComplexButton from './ComplexButton';
-import mocks from '../constants/mocks';
 
 const CARD_HEIGHT = 80;
-const MARGIN = 15;
+const MARGIN = 10;
 const HEIGHT = CARD_HEIGHT + MARGIN * 2;
-// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const cards = mocks.templates;
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Wallet = ({ navigation }) => {
+const Wallet = ({ navigation, cards }) => {
   const [containerHeight, setContainerHeight] = useState(null);
   const visibleCards = Math.ceil(containerHeight / HEIGHT);
   const {
@@ -40,6 +37,8 @@ const Wallet = ({ navigation }) => {
     -HEIGHT * (cards.length + 0.5) + visibleCards * HEIGHT,
     0,
   );
+
+  //   const preparedList = containerHeight ? 'sadsa'
   return (
     <PanGestureHandler {...gestureHandler}>
       <Animated.View
@@ -78,7 +77,11 @@ const Wallet = ({ navigation }) => {
                 style={[styles.card, { opacity, transform: [{ translateY }, { scale }] }]}
               >
                 <View style={{ height: CARD_HEIGHT }}>
-                  <ComplexButton text={textSetting} icon={iconSetting} onPress={() => navigation.navigate('Creating')} />
+                  <ComplexButton
+                    text={textSetting}
+                    icon={iconSetting}
+                    onPress={() => navigation.navigate('Creating')}
+                  />
                 </View>
               </Animated.View>
             );

@@ -1,3 +1,6 @@
+import {
+  sortBy, compose, toLower, path, reverse,
+} from 'ramda';
 import { colors, themeColors } from './theme';
 
 const templates = [
@@ -10,7 +13,7 @@ const templates = [
     textSetting: {
       title: 'Daily',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.orange, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -22,7 +25,7 @@ const templates = [
     textSetting: {
       title: 'Weekly',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.blue, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -34,7 +37,7 @@ const templates = [
     textSetting: {
       title: 'Only me',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.purple, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -46,7 +49,7 @@ const templates = [
     textSetting: {
       title: 'Family pack',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.blue, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -58,7 +61,7 @@ const templates = [
     textSetting: {
       title: 'Important',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.orange, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -70,7 +73,7 @@ const templates = [
     textSetting: {
       title: 'Daily',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.blue, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -82,7 +85,7 @@ const templates = [
     textSetting: {
       title: 'Daily',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.red, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -94,7 +97,7 @@ const templates = [
     textSetting: {
       title: 'Daily',
       subtitle: 'Be ready every day!',
-      color: { background: themeColors.blue, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
   {
@@ -106,7 +109,7 @@ const templates = [
     textSetting: {
       title: 'Lover',
       subtitle: 'Only you and me!',
-      color: { background: themeColors.green, foreground: colors.white },
+      color: { background: colors.white, foreground: colors.black },
     },
   },
 ];
@@ -136,4 +139,10 @@ const complexScreen = {
   },
 };
 
-export default { templates, complexScreen };
+const sortByTextSettingTitle = sortBy(compose(toLower, path(['textSetting', 'title'])));
+const sortedTemplates = sortByTextSettingTitle(templates);
+const reverseSortedTemplates = reverse(sortedTemplates);
+
+export default {
+  templates, sortedTemplates, reverseSortedTemplates, complexScreen,
+};
