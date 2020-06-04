@@ -128,13 +128,13 @@ const complexScreen = {
   },
   templateButton: {
     iconSetting: {
-      name: 'child',
-      color: { background: colors.secondary, foreground: 'white' },
+      name: 'file-text',
+      color: { background: '#59bfe4', foreground: 'white' },
     },
     textSetting: {
-      title: 'Daily',
-      subtitle: 'Be ready every day!',
-      color: { background: colors.white, foreground: colors.black },
+      title: 'Create',
+      subtitle: 'Prepare your own template!',
+      color: { background: colors.primary, foreground: 'white' },
     },
   },
 };

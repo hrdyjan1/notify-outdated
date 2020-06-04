@@ -1,9 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
-  compose, toLower, path, reverse, sortBy,
-} from 'ramda';
-import {
   Block, List, ComplexButton, Headings, Text, TextButton,
 } from '../../components';
 import { theme, mocks } from '../../constants';
@@ -26,6 +23,8 @@ const Template = ({ navigation }) => {
   React.useEffect(() => {
     if (!isSortedDown) {
       setSortedList(reverseSortedTemplates);
+    } else {
+      setSortedList(sortedTemplates);
     }
   }, [isSortedDown]);
 
@@ -35,8 +34,8 @@ const Template = ({ navigation }) => {
         <Block>
           <Block flex={false} style={{ marginTop: 20 }}>
             <ComplexButton
-              text={mocks.complexScreen.mainButton.textSetting}
-              icon={mocks.complexScreen.mainButton.iconSetting}
+              text={mocks.complexScreen.templateButton.textSetting}
+              icon={mocks.complexScreen.templateButton.iconSetting}
               onPress={() => navigation.navigate('Creating')}
             />
             <Headings>
