@@ -17,14 +17,21 @@ const { sortedTemplates, reverseSortedTemplates } = mocks;
 
 const Template = ({ navigation }) => {
   const [isSortedDown, setSortedDown] = React.useState(true);
-  const [sortedList, setSortedList] = React.useState(sortedTemplates);
+  const [sortedList, setSortedList] = React.useState(null);
+  const [listHeight, setListHeight] = React.useState(null);
   const toggleSort = () => setSortedDown((s) => !s);
 
+  const isListReadyToRender = listHeight && sortedList;
+
+  const onLayout = (event) => {
+    setListHeight(event.nativeEvent.layout.height);
+  };
+
   React.useEffect(() => {
-    if (!isSortedDown) {
-      setSortedList(reverseSortedTemplates);
-    } else {
+    if (isSortedDown) {
       setSortedList(sortedTemplates);
+    } else {
+      setSortedList(reverseSortedTemplates);
     }
   }, [isSortedDown]);
 
@@ -51,9 +58,9 @@ const Template = ({ navigation }) => {
               />
             </Headings>
           </Block>
-          <Block flex={3}>
-            <List navigation={navigation} cards={sortedList} />
-          </Block>
+          <View style={{ flex: 3 }} onLayout={onLayout}>
+            {isListReadyToRender ? <List cards={sortedList} height={listHeight} /> : null}
+          </View>
         </Block>
       </Block>
     </View>
