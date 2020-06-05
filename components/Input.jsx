@@ -103,7 +103,7 @@ const Input = (props) => {
   const inputType = email ? 'email-address' : numberType;
 
   return (
-    <Block flex={false} margin={[theme.sizes.base, 0]}>
+    <Block flex={false} margin={[5, 0, theme.sizes.base, 0]}>
       {renderLabel()}
       <TextInput
         style={inputStyles}

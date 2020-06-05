@@ -1,44 +1,66 @@
 import React from 'react';
-import { Image, SafeAreaView } from 'react-native';
-
 import {
-  Text, Block, ComplexButton, TextButton, Headings,
+  Image, SafeAreaView, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView,
+} from 'react-native';
+
+import { Header } from '@react-navigation/stack';
+import {
+  Block, Input, Button, Text,
 } from '../../../components';
-
 import image from '../../../assets/complex.png';
-import { mocks } from '../../../constants';
 import styles from './styles';
-import { textButtonIcon } from './helpers';
+import { notificationReducer, notificationInitialState } from './helpers';
+import { theme } from '../../../constants';
 
+const Complex = () => {
+  const [state, dispatch] = React.useReducer(notificationReducer, notificationInitialState);
 
-const Complex = ({ navigation }) => (
-  <SafeAreaView style={styles.container}>
-    <Block center top style={styles.top}>
-      <Image source={image} resizeMode="center" style={styles.image} />
-    </Block>
-    <Block middle center>
-      <ComplexButton
-        text={mocks.complexScreen.mainButton.textSetting}
-        icon={mocks.complexScreen.mainButton.iconSetting}
-        onPress={() => navigation.navigate('Creating')}
-      />
-      <Headings>
-        <Text h3 spacing={0.4} margin>
-          Use template
-        </Text>
-        <TextButton
-          text="See more"
-          onPress={() => navigation.navigate('Template')}
-          icon={textButtonIcon}
-        />
-      </Headings>
-      <ComplexButton
-        onPress={() => navigation.navigate('Creating')}
-        text={mocks.complexScreen.templateButton.textSetting}
-        icon={mocks.complexScreen.templateButton.iconSetting}
-      />
-    </Block>
-  </SafeAreaView>
-);
+  const handleChange = (value, type) => {
+    dispatch({ type: `CHANGE_${type}`, payload: { text: value } });
+  };
 
+  const handleTitleChange = (text) => handleChange(text, 'TITLE');
+  const handleDescriptionChange = (text) => handleChange(text, 'DESCRIPTION');
+
+  return (
+    <KeyboardAvoidingView style={{ flex: 1 }} behavior="height" keyboardVerticalOffset={Header.HEIGHT + 20}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <SafeAreaView style={styles.container}>
+          <Block center style={{ marginVertical: 20 }}>
+            <Image source={image} resizeMode="center" style={styles.image} />
+          </Block>
+          <Block flex={false} center bottom style={styles.middle}>
+            <Text center h2 primary>
+              Quick, simple, soon.
+            </Text>
+            <Text center caption primary>
+              See you after 5 minutes.
+            </Text>
+          </Block>
+          <Block middle top>
+            <Input
+              style={styles.input}
+              label={state.title.label}
+              errorText={state.title.error}
+              defaultValue={state.title.name}
+              onChangeText={handleTitleChange}
+            />
+            <Input
+              style={styles.input}
+              label={state.description.label}
+              errorText={state.description.error}
+              defaultValue={state.description.name}
+              onChangeText={handleDescriptionChange}
+            />
+            <Button color={theme.colors.primary}>
+              <Text white center>
+                Next
+              </Text>
+            </Button>
+          </Block>
+        </SafeAreaView>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
+  );
+};
 export default Complex;

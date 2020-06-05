@@ -10,7 +10,7 @@ const getRandomTime = () => Math.random * 1000;
 
 const resolveRandomTime = async () => new Promise((r) => setTimeout(r, 1000));
 
-const checkValidation = (text) => text.length > 3;
+const checkValidation = (text) => text.length > 3 && text.length < 20;
 
 export {
   pathString, addKeyInObj, resolveRandomTime, getRandomTime, checkValidation,
