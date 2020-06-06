@@ -1,8 +1,25 @@
 import { checkValidation } from '../../../helpers/func';
+import { theme } from '../../../constants';
+
+export const ITEM_WIDTH = theme.sizes.device.width;
+
+export const keyExtractor = (item) => item.key;
+export const getItemLayout = (_, index) => ({
+  length: ITEM_WIDTH,
+  offset: ITEM_WIDTH * index,
+  index,
+});
 
 export const textButtonIcon = {
   name: 'ios-arrow-forward',
 };
+
+export const SCREEN_DATA = [
+  { key: '1590742869959', index: 0 },
+  { key: '1590742869960', index: 1 },
+  { key: '1590742869961', index: 2 },
+];
+
 
 export const notificationInitialState = {
   title: { name: '', error: '', label: 'Title' },

@@ -5,6 +5,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 0,
+  },
+  innerContainer: {
+    flex: 1,
+    paddingVertical: 0,
     paddingHorizontal: theme.sizes.base * 2,
   },
   top: {
