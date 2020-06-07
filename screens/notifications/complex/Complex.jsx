@@ -19,6 +19,7 @@ const Complex = () => {
     <SafeAreaView style={styles.container}>
       <FlatList
         horizontal
+        keyboardShouldPersistTaps="always"
         ref={flatListRef}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
