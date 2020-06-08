@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import DatePicker, { getFormatedDate } from 'react-native-modern-datepicker';
 import { theme } from '../../../../../constants';
 
@@ -18,7 +19,7 @@ function getCurrentTime() {
   return { currentTime, currentDate };
 }
 
-const Calendar = React.memo(({ setSelectedDate }) => {
+const Calendar = React.memo(({ setSelectedDate, maximumDate }) => {
   const { currentTime, currentDate } = getCurrentTime();
 
   return (
@@ -38,6 +39,7 @@ const Calendar = React.memo(({ setSelectedDate }) => {
       current={currentTime}
       selected={currentTime}
       minimumDate={currentDate}
+      maximumDate={maximumDate}
       minuteInterval={5}
       style={{ borderRadius: 10 }}
     />
