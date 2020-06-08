@@ -55,7 +55,7 @@ const Intro = ({ width, scrollTo }) => {
   return (
     <KeyboardAvoidingView style={{ flex: 1, width }} keyboardVerticalOffset={Header.HEIGHT + 20}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <Block style={{ padding: 24, flex: 1, justifyContent: 'flex-end' }}>
+        <Block style={[styles.innerContainer, { justifyContent: 'flex-end' }]}>
           <Block animated center style={{ flex: imageSize, marginVertical: 20 }}>
             <Image source={image} resizeMode="center" style={styles.image} />
           </Block>

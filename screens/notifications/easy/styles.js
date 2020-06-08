@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
     height: '80%',
     resizeMode: 'contain',
   },
-  inner: {
-    padding: 24,
-    flex: 1,
-    justifyContent: 'space-around',
-  },
+  //   inner: {
+  //     padding: 24,
+  //     flex: 1,
+  //     justifyContent: 'space-around',
+  //   },
   header: {
     fontSize: 36,
     marginBottom: 48,
