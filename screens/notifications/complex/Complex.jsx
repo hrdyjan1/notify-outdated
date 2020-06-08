@@ -7,6 +7,8 @@ import {
 import ScreenSwitcher from './ScreenSwitcher';
 import styles from './styles';
 
+const complexFlatListKey = 'complexFlatListKey';
+
 const Complex = () => {
   const flatListRef = React.useRef(null);
   const scrollTo = (index) => flatListRef.current.scrollToIndex({ index });
@@ -19,6 +21,7 @@ const Complex = () => {
     <SafeAreaView style={styles.container}>
       <FlatList
         horizontal
+        listKey={complexFlatListKey}
         keyboardShouldPersistTaps="always"
         ref={flatListRef}
         renderItem={renderItem}
