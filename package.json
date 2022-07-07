@@ -15,7 +15,7 @@
     "@react-navigation/stack": "^5.2.18",
     "@use-expo/font": "^2.0.0",
     "expo": "~37.0.3",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "ramda": "^0.27.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
